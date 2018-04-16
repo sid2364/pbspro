@@ -267,7 +267,7 @@ enum func_names { GET_PRIMARY_VALUES, END_FUNC_NAMES };
  * Message Header data - use, output of pbs_probe's "Primary" variables
  */
 enum	mhp { MHP_cnf, MHP_home, MHP_exec, MHP_svr, MHP_mom, MHP_sched };
-static char mhp[][20] = {
+static char mhp[6][20] = {
 	"PBS_CONF_FILE",
 	"PBS_HOME",
 	"PBS_EXEC",
@@ -302,7 +302,7 @@ static  char default_pbsconf[] = "/etc/pbs.conf";
 /* ------------ PBS HOME: relative paths -----------*/
 
 
-static char svrhome[][80] = {
+static char svrhome[17][100] = {
 	/* 00 */ "server_logs",
 	/* 01 */ "spool",
 	/* 02 */ "server_priv",
@@ -322,7 +322,7 @@ static char svrhome[][80] = {
 	/* 16 */ "datastore"
 };
 
-static char momhome[][80] = {
+static char momhome[12][100] = {
 	/* 0 */ "aux",
 	/* 1 */ "checkpoint",
 	/* 2 */ "mom_logs",
@@ -337,7 +337,7 @@ static char momhome[][80] = {
 	/* 11 */ "mom_priv/hooks/tmp"
 };
 
-static char schedhome[][80] = {
+static char schedhome[8][100] = {
 	/* 0 */ "sched_logs",
 	/* 1 */ "sched_priv",
 	/* 2 */ "sched_priv/dedicated_time",
@@ -348,7 +348,7 @@ static char schedhome[][80] = {
 	/* 7 */ "sched_priv/sched_out"
 };
 
-static char exec[][80] = {
+static char exec[9][100] = {
 	/* 0 */ "bin",
 	/* 1 */ "etc",
 	/* 2 */ "include",
@@ -364,7 +364,7 @@ static char exec[][80] = {
 
 /* ------------ PBS EXEC: relative paths ----------*/
 
-static char exbin[][80] = {
+static char exbin[48][100] = {
 	/* 00 */ "bin/nqs2pbs",
 	/* 01 */ "bin/pbs_topologyinfo",
 	/* 02 */ "bin/pbs_hostn",
@@ -415,7 +415,7 @@ static char exbin[][80] = {
 	/* 47 */ "bin/pbs_dataservice"
 };
 
-static char exsbin[][80] = {
+static char exsbin[14][100] = {
 	/* 00 */ "sbin/pbs-report",
 	/* 01 */ "sbin/pbs_demux",
 	/* 02 */ "sbin/pbs_idled",
@@ -432,7 +432,7 @@ static char exsbin[][80] = {
 	/* 13 */ "sbin/pbs_upgrade_job"
 };
 
-static char exetc[][80] = {
+static char exetc[11][100] = {
 	/* 00 */ "etc/modulefile",
 	/* 01 */ "etc/pbs_dedicated",
 	/* 02 */ "etc/pbs_habitat",
@@ -446,7 +446,7 @@ static char exetc[][80] = {
 	/* 10 */ "etc/pbs_topologyinfo"
 };
 
-static char exinc[][80] = {
+static char exinc[5][100] = {
 	/* 00 */ "include/pbs_error.h",
 	/* 01 */ "include/pbs_ifl.h",
 	/* 02 */ "include/rm.h",
@@ -454,7 +454,7 @@ static char exinc[][80] = {
 	/* 04 */ "include/tm_.h"
 };
 
-static char exlib[][80] = {
+static char exlib[43][100] = {
 	/* 00 */ "lib/libattr.a",
 	/* 01 */ "lib/libcmds.a",	/* this library no longer exists */
 	/* 02 */ "lib/liblog.a",
@@ -507,7 +507,7 @@ static char exec_man7[] = "man/man7";
 static char exec_man8[] = "man/man8";
 #endif
 
-static char exman1[][80] = {
+static char exman1[19][100] = {
 	/* 00 */ "man/man1",
 	/* 01 */ "man/man1/nqs2pbs.1B",
 	/* 02 */ "man/man1/pbs_python.1B",
@@ -529,7 +529,7 @@ static char exman1[][80] = {
 	/* 18 */ "man/man1/qsub.1B"
 };
 
-static char exman3[][80] = {
+static char exman3[34][100] = {
 	/* 00 */ "man/man3",
 	/* 01 */ "man/man3/pbs_alterjob.3B",
 	/* 02 */ "man/man3/pbs_connect.3B",
@@ -566,7 +566,7 @@ static char exman3[][80] = {
 	/* 33 */ "man/man3/pbs_statfree.3B"
 };
 
-static char exman7[][80] = {
+static char exman7[9][100] = {
 	/* 00 */ "man/man7",
 	/* 01 */ "man/man7/pbs_job_attributes.7B",
 	/* 02 */ "man/man7/pbs_node_attributes.7B",
@@ -578,7 +578,7 @@ static char exman7[][80] = {
 	/* 08 */ "man/man7/pbs_professional.7B"
 };
 
-static char exman8[][80] = {
+static char exman8[31][100] = {
 	/* 00 */ "man/man8",
 	/* 01 */ "man/man8/pbs_idled.8B",
 	/* 02 */ "man/man8/pbs_mom.8B",
@@ -612,14 +612,14 @@ static char exman8[][80] = {
 	/* 30 */ "man/man8/pbs_interactive.8B"
 };
 
-static char extcltk[][80] = {
+static char extcltk[4][100] = {
 	/* 0 */ "tcltk/bin",
 	/* 1 */ "tcltk/include",
 	/* 2 */ "tcltk/lib",
 	/* 3 */ "tcltk/license.terms"
 };
 
-static char expython[][80] = {
+static char expython[6][100] = {
 	/* 0 */ "python/bin",
 	/* 1 */ "python/include",
 	/* 2 */ "python/lib",
@@ -628,7 +628,7 @@ static char expython[][80] = {
 	/* 5 */ "python/bin/python"
 };
 
-static char expgsql[][80] = {
+static char expgsql[4][100] = {
 	/* 0 */ "pgsql/bin",
 	/* 1 */ "pgsql/include",
 	/* 2 */ "pgsql/lib",
@@ -735,7 +735,7 @@ char *exec_mpug_set[EXEC_last] = {"exec", "bin", "sbin", "etc", "include",
 	"lib", "man", "man1", "man3", "man7",
 	"man8", "tcltk", "python", "pgsql"};
 
-int  exec_sizes[EXEC_last];
+int  exec_sizes[EXEC_last] = {0};
 
 static MPUG	 exec_mpugs[] = {
 	/*
@@ -1247,7 +1247,7 @@ static void     fix_perm_owner(MPUG *, struct stat *, ADJ *);
 
 /* Variables visible to all functions in this file */
 
-static int   flag_verbose;
+static int   flag_verbose = 0;
 static	int  mode = 0;
 static	int  max_level = FIX_po;
 int	nonlocaldata = 0;
@@ -1263,9 +1263,9 @@ int	nonlocaldata = 0;
 int
 main(int argc, char *argv[])
 {
-	int rc;
-	int i=0;
-	int err=0;
+	int rc = 0;
+	int i = 0;
+	int err = 0;
 	struct infrastruct infra;
 
 	extern int optind;
@@ -1404,8 +1404,8 @@ static void
 infrastruct_params(struct infrastruct *pinf, int mode)
 {
 
-	int	i, rc;			/* return code */
-	char	hname[PBS_MAXHOSTNAME+1];
+	int	i = 0, rc = 0;			/* return code */
+	char	hname[PBS_MAXHOSTNAME+1] = {'\0'};
 
 	memset((void *)pinf, 0, (size_t)sizeof(struct infrastruct));
 
@@ -1619,15 +1619,15 @@ adjust_for_os(struct infrastruct *pinf)
 static void
 adjust_man_mpugs(struct infrastruct *pinf)
 {
-	int   i, len;
-	MPUG *p;
-	char *pm;
+	int   i = 0, len = 0;
+	MPUG *p = NULL;
+	char *pm = NULL;
 
 
-	int	szman1 = (sizeof(exman1))/80;
-	int	szman3 = (sizeof(exman3))/80;
-	int	szman7 = (sizeof(exman7))/80;
-	int	szman8 = (sizeof(exman8))/80;
+	int	szman1 = (sizeof(exman1))/100;
+	int	szman3 = (sizeof(exman3))/100;
+	int	szman7 = (sizeof(exman7))/100;
+	int	szman8 = (sizeof(exman8))/100;
 
 	int	ofs_man1;
 	int	ofs_man3;
@@ -1740,9 +1740,9 @@ adjust_man_mpugs(struct infrastruct *pinf)
 static void
 print_infrastruct(struct infrastruct *pinf)
 {
-	int	i, j;
-	int	tflag;
-	MPUG	*pmpug;
+	int	i = 0, j = 0;
+	int	tflag = 0;
+	MPUG	*pmpug = NULL;
 
 	tflag = 0;
 	for (i=0; i<PBS_last; ++i) {
@@ -1908,7 +1908,7 @@ print_problems(INFRA *pinf)
 	int i, j, k;
 	int idx;
 	int tflag, output_err = 0;
-	char **pa;
+	char **pa = NULL;
 
 	for (i=0; i<SRC_last; ++i) {
 		tflag = 0;
@@ -1987,8 +1987,8 @@ put_msg_in_table(INFRA *pinf, int src, int category, char* msg)
 	static enum  msg_categories	dflt_cat = MSG_none;
 	static char  *msg_headers[MSG_last] = { NULL};
 
-	char   **ptbl;
-	char   **mtb;
+	char   **ptbl = NULL;
+	char   **mtb = NULL;
 	int    idx;
 
 	/*
@@ -2131,9 +2131,9 @@ put_msg_in_table(INFRA *pinf, int src, int category, char* msg)
 static int
 get_primary_values(struct infrastruct *pinf)
 {
-	FILE	*fp;
+	FILE	*fp = NULL;
 	int	rc;
-	char	*gvalue;		/* used with getenv() */
+	char	*gvalue = NULL;		/* used with getenv() */
 
 
 	origin_names[PBS_conf] = "PBS CONF FILE";
@@ -2244,14 +2244,14 @@ pbsdotconf(char * path)
 static	int
 get_realpath_values(struct infrastruct *pinf)
 {
-	char real[MAXPATHLEN];
-	char path[MAXPATHLEN];
-	char *endhead;
+	char real[MAXPATHLEN] = {'\0'};
+	char path[MAXPATHLEN] = {'\0'};
+	char *endhead = NULL;
 	char demarc[]="/";
 	int  i, j;
-	MPUG *pmpug;
-	int  good_prime[PBS_last];
-	char msg[1024];
+	MPUG *pmpug = NULL;
+	int  good_prime[PBS_last] = {0};
+	char msg[1024] = {'\0'};
 
 	/*
 	 * First try and resolve to a real path the MPUG path
@@ -2449,8 +2449,8 @@ get_realpath_values(struct infrastruct *pinf)
 static int
 is_parent_rpathnull(char *path, MPUG **mpa, int nelts, int * nmems)
 {
-	char *dp;
-	MPUG *mpug;
+	char *dp = NULL;
+	MPUG *mpug = NULL;
 	int  i, j;
 	int  rc = 0, done = 0;
 
@@ -2944,8 +2944,8 @@ static	int
 check_paths(struct infrastruct *pinf)
 {
 	int	i, j;
-	MPUG	*pmpug;
-	char	*realpath;
+	MPUG	*pmpug = NULL;
+	char	*realpath = NULL;
 
 #ifndef	_SX
 	for (i=0; i<PBS_last; ++i) {
@@ -3011,8 +3011,8 @@ static	int
 check_owner_modes(char *path, MPUG *p_mpug, int sys)
 {
 	int	    rc = 0;		/* encountered no mode problem */
-	char	    *dp;
-	char	    msg[256];
+	char	    *dp = NULL;
+	char	    msg[256] = {'\0'};
 	const char  *perm_msg;
 
 	struct stat sbuf;
@@ -3180,11 +3180,11 @@ perm_owner_msg(struct stat *ps, MPUG *p_mpug,
 	ADJ  *p_adj, int sys)
 {
 	mode_t	    modes;
-	char	    *perm_is;
-	char	    *perm_need;
-	char	    *owner_is;
-	char	    *owner_need;
-	static char buf[1024];
+	char	    *perm_is = NULL;
+	char	    *perm_need = NULL;
+	char	    *owner_is = NULL;
+	char	    *owner_need = NULL;
+	static char buf[1024] = {'\0'};
 
 	/*
 	 * first adjust bits from the MPUG by turning off mode bits that should
@@ -3235,7 +3235,7 @@ perm_owner_msg(struct stat *ps, MPUG *p_mpug,
 static	char *
 perm_string(mode_t modes)
 {
-	static char buf[12];
+	static char buf[12] = {'\0'};
 
 	strcpy(buf, "----------");
 
@@ -3290,10 +3290,10 @@ perm_string(mode_t modes)
 static	const char *
 owner_string(struct stat *ps, MPUG *p_mpug, int sys)
 {
-	struct passwd	*ppw;
-	struct group	*pgrp;
+	struct passwd	*ppw = NULL;
+	struct group	*pgrp = NULL;
 
-	static char buf[1024];
+	static char buf[1024] = {'\0'};
 
 	buf[0] = '\0';
 	if (ps) {
@@ -3335,7 +3335,7 @@ static int
 process_ret_code(enum func_names from, int rc, struct infrastruct *pinf)
 {
 	int  ret = 0;
-	char msg[1024];
+	char msg[1024] = {'\0'};
 
 	if (from == GET_PRIMARY_VALUES) {
 
@@ -3371,9 +3371,9 @@ process_ret_code(enum func_names from, int rc, struct infrastruct *pinf)
 static	int
 conf4primary(FILE *fp, struct infrastruct *pinf)
 {
-	char buf[1024];
-	char *conf_name;              /* the name of the conf parameter */
-	char *conf_value;             /* the value from the conf file or env*/
+	char buf[1024] = {'\0'};
+	char *conf_name = NULL;              /* the name of the conf parameter */
+	char *conf_value = NULL;             /* the value from the conf file or env*/
 	unsigned int uvalue;          /* used with sscanf() */
 
 	/* should not be calling with a NULL value for fp */
@@ -3442,7 +3442,7 @@ conf4primary(FILE *fp, struct infrastruct *pinf)
 static	int
 env4primary(struct infrastruct *pinf)
 {
-	char *gvalue;                 /* used with getenv() */
+	char *gvalue = NULL;                 /* used with getenv() */
 	unsigned int uvalue;          /* used with sscanf() */
 
 	if ((gvalue = getenv("PBS_START_SERVER"))) {
@@ -3533,7 +3533,7 @@ fix(int probemode, int need, int max_level, MPUG *pmpug, ADJ *padj, struct stat 
 static void
 fix_perm_owner(MPUG *p_mpug, struct stat *ps, ADJ *p_adj)
 {
-	char		msg[512];
+	char		msg[512] = {'\0'};
 	mode_t		modes;
 	mode_t		dis_modes;
 	unsigned	fixes = 0;
